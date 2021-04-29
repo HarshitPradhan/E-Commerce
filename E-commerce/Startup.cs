@@ -42,11 +42,6 @@ namespace E_commerce
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount =false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("RequireAdministratorRole",
-                     policy => policy.RequireRole("Administrator"));
-            });
 
             services.AddControllersWithViews();
             services.AddRazorPages();

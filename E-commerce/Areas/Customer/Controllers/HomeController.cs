@@ -13,6 +13,7 @@ using System.Linq;
 namespace E_commerce.Controllers
 {
     [Area("Customer")]
+    [Authorize]
     public class HomeController : Controller
     {
         private ApplicationDbContext _db;
@@ -22,7 +23,7 @@ namespace E_commerce.Controllers
             _db = db;
         }
 
-
+        [AllowAnonymous]
         public IActionResult Index(int? page)
         {
             return View(_db.Products.Include(c => c.ProductTypes).ToList());
@@ -41,7 +42,7 @@ namespace E_commerce.Controllers
 
         //GET product detail acation method
         
-        [Authorize]
+        [AllowAnonymous]
         public ActionResult Detail(int? id)
         {
 
@@ -57,7 +58,7 @@ namespace E_commerce.Controllers
             }
             return View(product);
         }
-        [Authorize]
+        
         //POST product detail acation method
         [HttpPost]
         [ActionName("Detail")]
