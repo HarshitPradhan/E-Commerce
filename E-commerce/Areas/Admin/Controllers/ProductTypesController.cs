@@ -1,5 +1,6 @@
 ﻿using E_commerce.Data;
 using E_commerce.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 namespace E_commerce.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class ProductTypesController : Controller
     {
         private ApplicationDbContext _db;
@@ -45,7 +47,6 @@ namespace E_commerce.Areas.Admin.Controllers
         }
 
         //GET Edit Action Method
-
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,7 +81,6 @@ namespace E_commerce.Areas.Admin.Controllers
 
 
         //GET Details Action Method
-
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -97,7 +97,6 @@ namespace E_commerce.Areas.Admin.Controllers
         }
 
         //POST Edit Action Method
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Details(ProductTypes productTypes)
@@ -107,7 +106,6 @@ namespace E_commerce.Areas.Admin.Controllers
         }
 
         //GET Delete Action Method
-
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -124,7 +122,6 @@ namespace E_commerce.Areas.Admin.Controllers
         }
 
         //POST Delete Action Method
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id, ProductTypes productTypes)

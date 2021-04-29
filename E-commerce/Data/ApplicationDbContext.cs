@@ -14,6 +14,9 @@ namespace E_commerce.Data
         {
         }
         public DbSet<ProductTypes> ProductTypes { get; set; }
+        public DbSet<Products> Products { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
 
     }
 }
